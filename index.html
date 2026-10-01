@@ -3,169 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil & Minat IT - Muh. Isa Madani</title>
+    <title>Muh. Isa Madani | Portofolio & FTTH</title>
+    <!-- Import Font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Import FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            /* Latar belakang gradien bergerak bergaya tech */
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0b132b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        .card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-container {
+            /* Efek Glassmorphism */
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
             width: 100%;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Bagian Header Profil */
+        .profile-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .profile-header p {
+            color: #b0c4de;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Grid Data Mahasiswa */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             padding: 30px;
         }
 
-        .card h2 {
+        .info-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
-            color: #1a5276;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e1e8ed;
-            padding-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .info-group {
-            margin-bottom: 15px;
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2);
+            border-color: rgba(0, 242, 254, 0.3);
         }
 
-        .info-group label {
-            font-weight: bold;
-            color: #555;
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .info-group p {
-            background-color: #f8f9fa;
-            padding: 10px 12px;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
-            color: #2d3748;
-            font-weight: 500;
-        }
-
-        .interest-section {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 2px dashed #e1e8ed;
-        }
-
-        .interest-section label {
-            font-weight: bold;
-            color: #1a5276;
-            display: block;
+        .info-card i {
+            font-size: 2rem;
+            color: #4facfe;
             margin-bottom: 10px;
         }
 
-        select, input[type="text"] {
+        .info-card h3 {
+            font-size: 0.9rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Bagian Artikel FTTH */
+        .article-section {
+            padding: 0 30px 40px;
+        }
+
+        .article-section h2 {
+            font-size: 1.8rem;
+            color: #00f2fe;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Gambar Ilustrasi */
+        .hero-image {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e0;
-            border-radius: 6px;
-            outline: none;
-            font-size: 1rem;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        .article-content p {
+            color: #cbd5e0;
+            line-height: 1.8;
             margin-bottom: 15px;
-            transition: border-color 0.2s;
+            text-align: justify;
         }
 
-        select:focus, input[type="text"]:focus {
-            border-color: #3182ce;
+        .highlight-quote {
+            background: linear-gradient(90deg, rgba(79, 172, 254, 0.1) 0%, transparent 100%);
+            border-left: 4px solid #00f2fe;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #e2e8f0;
+            font-size: 1.05rem;
         }
 
-        button {
-            width: 100%;
-            background-color: #2b6cb0;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        button:hover {
-            background-color: #2c5282;
-        }
-
-        .result-message {
+        ul.tech-list {
+            list-style: none;
             margin-top: 15px;
-            padding: 10px;
-            border-radius: 6px;
-            background-color: #ebf8ff;
-            color: #2b6cb0;
-            text-align: center;
-            display: none;
-            font-size: 0.95rem;
+        }
+
+        ul.tech-list li {
+            margin-bottom: 15px;
+            color: #cbd5e0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        ul.tech-list i {
+            color: #00f2fe;
+            margin-top: 5px;
+        }
+
+        /* Responsif */
+        @media (max-width: 600px) {
+            .profile-header h1 { font-size: 2rem; }
+            .hero-image { height: 200px; }
+            .info-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h2>Profil Mahasiswa</h2>
-
-        <div class="info-group">
-            <label>Nama Mahasiswa</label>
-            <p>Muh. Isa Madani</p>
-        </div>
-
-        <div class="info-group">
-            <label>NIM</label>
-            <p>2505090002</p>
-        </div>
-
-        <div class="info-group">
-            <label>Program Studi</label>
+    <div class="glass-container">
+        <!-- Header -->
+        <div class="profile-header">
+            <h1>Muh. Isa Madani</h1>
             <p>Pendidikan Teknik Informatika dan Komputer</p>
         </div>
 
-        <form id="itForm" class="interest-section" onsubmit="handleSubmit(event)">
-            <label for="bidangIT">Bidang IT yang Ingin Diketahui:</label>
-            <select id="bidangIT" required>
-                <option value="" disabled selected>-- Pilih Bidang IT --</option>
-                <option value="Web Development & Software Engineering">Web Development & Software Engineering</option>
-                <option value="Computer Network & Cybersecurity">Computer Network & Cybersecurity</option>
-                <option value="Artificial Intelligence & Data Science">Artificial Intelligence & Data Science</option>
-                <option value="Mobile App Development">Mobile App Development</option>
-                <option value="Cloud Computing & DevOps">Cloud Computing & DevOps</option>
-            </select>
+        <!-- Kartu Informasi -->
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-id-card"></i>
+                <h3>NIM</h3>
+                <p>2505090002</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Tahun Angkatan</h3>
+                <p>2025</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Cita-cita</h3>
+                <p>Guru</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Fokus IT</h3>
+                <p>FTTH (Fiber Optic)</p>
+            </div>
+        </div>
 
-            <button type="submit">Simpan Pilihan</button>
-        </form>
+        <!-- Konten Penjelasan FTTH -->
+        <div class="article-section">
+            <h2><i class="fas fa-lightbulb"></i> Eksplorasi: Fiber to the Home (FTTH)</h2>
+            
+            <!-- Gambar dari Unsplash -->
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80" alt="Ilustrasi Server dan Jaringan Fiber" class="hero-image">
 
-        <div id="resultMessage" class="result-message"></div>
+            <div class="article-content">
+                <p><strong>Fiber to the Home (FTTH)</strong> merupakan arsitektur jaringan telekomunikasi yang menggantikan kabel tembaga tradisional dengan <strong>serat optik</strong> langsung hingga ke rumah pengguna. Teknologi ini mentransmisikan data menggunakan cahaya (pulsa laser), menjadikannya tulang punggung konektivitas internet super cepat di era modern.</p>
+
+                <div class="highlight-quote">
+                    "Sebagai calon pendidik, pemahaman mendalam tentang FTTH tidak hanya mengasah kemampuan teknis saya, tetapi juga mempersiapkan saya untuk mentransfer ilmu infrastruktur jaringan mutakhir kepada generasi siswa sekolah kejuruan (SMK) di masa depan."
+                </div>
+
+                <p>Dalam penerapannya di lapangan, jaringan FTTH menggunakan arsitektur GPON (Gigabit Passive Optical Network) yang terdiri dari beberapa komponen krusial:</p>
+
+                <ul class="tech-list">
+                    <li>
+                        <i class="fas fa-server"></i>
+                        <div><strong>OLT (Optical Line Terminal):</strong> Perangkat aktif di sisi provider yang bertindak sebagai otak jaringan, mengubah sinyal elektrik menjadi sinyal cahaya, dan mengatur lalu lintas data pelanggan.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-project-diagram"></i>
+                        <div><strong>ODN (Optical Distribution Network):</strong> Jalur kabel fiber dan kotak <em>Splitter</em> (pembagi cahaya pasif) yang mendistribusikan satu inti kabel utama ke puluhan rumah tanpa memerlukan aliran listrik di tengah jalan.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-wifi"></i>
+                        <div><strong>ONT/ONU (Optical Network Terminal):</strong> Perangkat akhir di rumah pelanggan (biasa disebut modem) yang mengubah kembali sinyal cahaya menjadi sinyal digital agar bisa dipancarkan melalui Wi-Fi atau kabel LAN ke perangkat kita.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            const selectedField = document.getElementById('bidangIT').value;
-            const resultDiv = document.getElementById('resultMessage');
-
-            resultDiv.style.display = 'block';
-            resultDiv.innerHTML = `Pilihan Anda berhasil disimpan: <strong>${selectedField}</strong>`;
-        }
-    </script>
 
 </body>
 </html>
